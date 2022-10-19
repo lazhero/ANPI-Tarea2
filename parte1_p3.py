@@ -2,17 +2,15 @@ import numpy as np
 from initialGenerators import *
 import multiprocessing
 import time
-def jacobi(A,x,b,iterMax,tol):
+def jacobiParallel(A,x,b,iterMax,tol):
     start=time.time()
     pool=multiprocessing.Pool()
-  
     iteraciones=0
-    
     error=0
     for k in range(iterMax):
         iteraciones=k+1  
-        args=[(A,b,x,i) for i in range(len(A))]
-        results=pool.starmap(calculateElement, args,chunksize=len(A))
+        args=[(A,b,x,i) for i in range(len(x))]
+        results=pool.starmap(calculateElement, args)
         x=np.transpose([results])
         if(k==1):
             print(x)
@@ -41,7 +39,7 @@ if __name__=='__main__':
     A=tridiagonal(p, q, m)
     b=getInitialB(m)
     x0=getInitialX0(m)
-    x,iteraciones,error,elapsed=jacobi(A, x0, b, iterMax,tol)
+    x,iteraciones,error,elapsed=jacobiParallel(A, x0, b, iterMax,tol)
 
     print("La matriz resultado es: ")
     print(x)
