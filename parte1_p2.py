@@ -1,5 +1,5 @@
 import numpy as np
-from initialGenerators import *
+from parte1_p1 import *
 import time
 
 def jacobi(A,x,b,iterMax,tol):
@@ -12,8 +12,6 @@ def jacobi(A,x,b,iterMax,tol):
         for i in range(len(x)):
             xk[i][0]=calculateElement(A, b, x, i)
         x=xk
-        if(k==1):
-            print(x)
         mat=np.subtract(np.dot(A,x),b)
         error=np.linalg.norm(mat)
         if(error<tol):
@@ -33,7 +31,7 @@ def calculateElement(A,b,x,i):
 if __name__=='__main__':
     tol=pow(10,-5)
     iterMax=1000
-    m=5
+    m=242
     p=q=getInicialP(m)
     A=tridiagonal(p, q, m)
     b=getInitialB(m)
