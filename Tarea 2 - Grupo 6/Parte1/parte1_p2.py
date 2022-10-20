@@ -61,7 +61,7 @@ def calculateElement(A, b, x, i):
 if __name__ == '__main__':
     tol = pow(10, -5)
     iterMax = 1000
-    m = 5
+    m = 242
     p = q = getInicialP(m)
     A = tridiagonal(p, q, m)
     b = getInitialB(m)
