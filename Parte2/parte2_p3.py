@@ -41,7 +41,7 @@ func_vec_c = [sym.core.sympify(
     "x**2 - 2*x - y + 1/2"), sym.core.sympify("x**2 + 4*(y**2) - 4")]
 sym_vec_c = [sym.Symbol('x'), sym.Symbol('y')]
 res_c = newton_rapson([1.9007, 0.3112], func_vec_c, sym_vec_c, 10**(-12), 3)
-print("El resultado de b es:\n")
+print("El resultado de c es:\n")
 print(res_c[0])
 print("El numero de iteraciones es:\n")
 print(res_c[1])
@@ -56,7 +56,7 @@ func_vec_d = [sym.core.sympify("x**2 + y**2 - 1"),
               sym.core.sympify("x**2 - y**2 + 0.5")]
 sym_vec_d = [sym.Symbol('x'), sym.Symbol('y')]
 res_d = newton_rapson([0.5, sqrt(3)/2], func_vec_d, sym_vec_d, 10**(-12), 3)
-print("El resultado de b es:\n")
+print("El resultado de d es:\n")
 print(res_d[0])
 print("El numero de iteraciones es:\n")
 print(res_d[1])
@@ -82,13 +82,11 @@ print("*************************************************************************
 print("****************************************************************************************************************\n")
 
 # (g)
-func_vec_g = [sym.core.sympify("b*c + d*(b+c)"), sym.core.sympify("a*c* + d*(a+c)"), sym.core.sympify("a*b* + d(a+b)"), sym.core.sympify("a*b + a*b + a*c + b*c -1")
+func_vec_g = [sym.core.sympify("b*c + d*(b+c)"), sym.core.sympify("a*c* + d*(a+c)"), sym.core.sympify("a*b* + d*(a+b)"), sym.core.sympify("a*b + a*b + a*c + b*c -1")
               ]
-sym_vec_g = [sym.Symbol('a'), sym.Symbol(
-    'b'), sym.Symbol('c'), sym.Symbol('d')]
-res_g = newton_rapson([1, 2, 1, 2],
-                      func_vec_g, sym_vec_g, 10**(-12), 3)
-print("El resultado de b es:\n")
+sym_vec_g = [sym.Symbol('a'), sym.Symbol('b'), sym.Symbol('c'), sym.Symbol('d')]
+res_g = newton_rapson([1, 2, 1, 2],func_vec_g, sym_vec_g, 10**(-12), 5)
+print("El resultado de g es:\n")
 print(res_g[0])
 print("El numero de iteraciones es:\n")
 print(res_g[1])

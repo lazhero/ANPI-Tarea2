@@ -74,8 +74,9 @@ def eval_jacobianMat(jacobianMat, Vec_ini, Vec_var):
     for m in jacobianMat:
         res_file = []
         for n in range(len(m)):
-            func = sym.lambdify(Vec_var[n], m[n], modules=["sympy"])
-            res_file.append(func(Vec_ini[n]))
+            vec_dic = formatVec_ini(Vec_ini, Vec_var)
+            temp = m[n].subs(vec_dic)
+            res_file.append(temp)
         res.append(res_file)
     return res
 
