@@ -28,8 +28,6 @@ def jacobiParallel(A, x, b, iterMax, tol):
         args = [(A, b, x, i) for i in range(len(x))]
         results = pool.starmap(calculateElement, args)
         x = np.transpose([results])
-        if(k == 1):
-            print(x)
         mat = np.subtract(np.dot(A, x), b)
         error = np.linalg.norm(mat)
         if(error < tol):
