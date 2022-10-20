@@ -27,7 +27,7 @@ def jacobi(A, x, b, iterMax, tol):
         iteraciones = k+1
         for i in range(len(x)):
             xk[i][0] = calculateElement(A, b, x, i)
-        x = xk.copy()
+        x = [kk[:] for kk in xk]
         mat = np.subtract(np.dot(A, x), b)
         error = np.linalg.norm(mat)
         if(error < tol):

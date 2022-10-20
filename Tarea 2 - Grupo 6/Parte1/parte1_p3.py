@@ -18,9 +18,9 @@ import time
 """
 
 
-def jacobiParallel(A, x, b, iterMax, tol):
+def jacobiParallel(A, x, b, iterMax, tol,cpu):
     start = time.time()
-    pool = multiprocessing.Pool()
+    pool = multiprocessing.Pool(processes=cpu)
     iteraciones = 0
     error = 0
     for k in range(iterMax):
@@ -67,7 +67,7 @@ if __name__ == '__main__':
     A = tridiagonal(p, q, m)
     b = getInitialB(m)
     x0 = getInitialX0(m)
-    x, iteraciones, error, elapsed = jacobiParallel(A, x0, b, iterMax, tol)
+    x, iteraciones, error, elapsed = jacobiParallel(A, x0, b, iterMax, tol,2)
 
     print("La matriz resultado es: ")
     print(x)
